@@ -190,8 +190,10 @@
                             <form action="{{ route("position.destroy", ["id"=>$lav->id]) }}" method="POST">
                                 @csrf
                                 @method("DELETE")
-                                <button class="btn btn-danger btn-sm mb-5 mt-1">O'chirish</button></td>
+                                <button class="btn btn-danger btn-sm mb-5 mt-1">O'chirish</button>
                             </form>
+                        </td>
+
                     </tr>
                 @endforeach
 
