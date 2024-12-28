@@ -11,7 +11,8 @@ class Teachers extends Model  // Model nomini singular va katta harf bilan yozis
     use HasFactory;
 
     protected $table = 'teachers'; // Jadval nomi
-    protected $fillable = ['fullname', 'lavozim_id', 'image']; // Mass-assignable ustunlar (lavozim -> lavozim_id bo'lishi kerak)
+    protected $fillable = ['fullname', 'number', 'gmail', 'work_time', 'lavozim_id', 'image', 'biography'];
+
 
     public function lavozim(): HasOne
     {

@@ -23,4 +23,10 @@ Route::post('/sendEmail', [\App\Http\Controllers\RouteController::class, 'sendEm
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'Dashboard'])->name('dashboard');
+    Route::get('/teachers/create', [\App\Http\Controllers\Admin\TeachersController::class, 'create'])->name('teachers.create');
+    Route::post('/teachers/store', [\App\Http\Controllers\Admin\TeachersController::class, 'store'])->name('teachers.store');
+    Route::get('/teachers/edit/{id}', [\App\Http\Controllers\Admin\TeachersController::class, 'edit'])->name('teachers.edit');
+    Route::put('/teacher/update/{id}', [\App\Http\Controllers\Admin\TeachersController::class, 'update'])->name('teachers.update');
+    Route::delete('/teacher/{id}', [\App\Http\Controllers\Admin\TeachersController::class, 'destroy'])->name('teachers.destroy');
+
 });

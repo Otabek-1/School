@@ -75,9 +75,9 @@
 
     <!-- Dynamic Content -->
     <div class="table-container" id="dynamic-content">
-        <div id="teachers-table" class="table-section">
+         <div id="teachers-table" class="table-section">
             <h3>O'qituvchilar</h3>
-            <button class="btn btn-success btn-sm mb-5 mt-1">O'qituvchi qo'shish</button>
+            <a href="{{ route("teachers.create") }}" class="btn btn-success btn-sm mb-5 mt-1">O'qituvchi qo'shish</a>
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -89,6 +89,7 @@
                     <th>Lavozim</th>
                     <th>Rasm</th>
                     <th>Biografiya</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -99,11 +100,22 @@
                         <td>{{ $teacher->number }}</td>
                         <td>{{ $teacher->gmail }}</td>
                         <td>{{ $teacher->work_time }}</td>
-                        <td>{{ $teacher->lavozim->name }}</td>
+                        <td>{{ $teacher->lavozim }}</td>
                         <td>
-                            <img src="{{ asset('storage/' . $teacher->image) }}" alt="">
+                            <img src="{{ asset($teacher->image) }}" alt="" style="width: 100px">
                         </td>
                         <td>{{ $teacher->biography }}</td>
+                        <td>
+                            <a href="{{ route('teachers.edit', ['id' => $teacher->id]) }}" class="btn btn-primary btn-sm mb-5 mt-1">Edit</a>
+
+
+                            <form action="{{ route('teachers.destroy', ['id' => $teacher->id]) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm mb-5 mt-1" onclick="return confirm('Siz o\'qituvchini o\'chirishni xohlaysizmi?')">O'chirish</button>
+                            </form>
+                        </td>
+
                     </tr>
 
                 @endforeach
@@ -145,7 +157,8 @@
                             {{ $minClass }} - {{ $maxClass }}
                         </td>
                         <td>
-                            <button class="btn btn-primary btn-sm">Edit</button>
+                            <button class="btn btn-primary btn-sm mb-5 mt-1">Edit</button>
+                            <button class="btn btn-danger btn-sm mb-5 mt-1">O'chirish</button>
                         </td>
                     </tr>
                 @endforeach
@@ -169,7 +182,8 @@
                     <tr>
                         <td>{{ $lav->id }}</td>
                         <td>{{ $lav->name  }}</td>
-                        <td><button class="btn btn-primary btn-sm">Edit</button></td>
+                        <td><button class="btn btn-primary btn-sm mb-5 mt-1">Edit</button>
+                            <button class="btn btn-danger btn-sm mb-5 mt-1">O'chirish</button></td>
                     </tr>
                 @endforeach
 
@@ -186,7 +200,8 @@
             <span>
                 <strong>{{ $info->info_name }}</strong>: {{ $info->info_count }}
             </span>
-                        <button class="btn btn-primary btn-sm">Edit</button>
+                        <button class="btn btn-primary btn-sm mb-5 mt-1">Edit</button>
+                        <button class="btn btn-danger btn-sm mb-5 mt-1">O'chirish</button>
                     </li>
                 @endforeach
             </ul>

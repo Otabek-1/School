@@ -74,10 +74,10 @@
                         @if($teacher->lavozim_id !=1)
                             <div class="col-lg-4 col-md-3 col-sm-6">
                                 <a href="{{ route("leaderShipDetail", $teacher->id) }}" class="deputy_director-main">
-                                    <img src="{{ asset('storage/' . $teacher->image) }}" width="90%" alt="Zam Director">
+                                    <img src="{{ asset($teacher->image) }}" width="90%" alt="Zam Director">
                                     <div class="deputy_director-details">
                                         <h1>{{ $teacher->fullname }}</h1>
-                                        <span>{{ $teacher->lavozim->name }}</span>
+                                        <span>{{ $teacher->lavozim }}</span>
                                     </div>
                                 </a>
                             </div>
