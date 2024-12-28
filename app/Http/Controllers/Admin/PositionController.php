@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Lavozim;
 use Illuminate\Http\Request;
 
 class PositionController extends Controller
@@ -12,7 +13,7 @@ class PositionController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.main');
     }
 
     /**
@@ -20,7 +21,7 @@ class PositionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.addPosition');
     }
 
     /**
@@ -28,7 +29,9 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $position = Lavozim::create($request->all());
+        $position->save();
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -44,7 +47,8 @@ class PositionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $position = Lavozim::findOrfail($id);
+        return view('admin.editPosition', compact('position'));
     }
 
     /**
@@ -52,7 +56,10 @@ class PositionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $position = Lavozim::findOrfail($id);
+        $position->update($request->all());
+        $position->save();
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -60,6 +67,8 @@ class PositionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $position = Lavozim::findOrfail($id);
+        $position->delete();
+        return redirect()->route('dashboard');
     }
 }

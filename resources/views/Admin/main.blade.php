@@ -125,14 +125,14 @@
 
         <div id="circles-table" class="table-section" style="display: none;">
             <h3>To'garaklar</h3>
-            <button class="btn btn-success btn-sm mb-5 mt-1">To'garak qo'shish</button>
+            <a href="{{ route("circle.create") }}" class="btn btn-success btn-sm mb-5 mt-1">To'garak qo'shish</a>
             <table class="table table-bordered">
                 <thead>
                 <tr>
                     <th>#</th>
                     <th>Nomi</th>
                     <th>O'quvchilar soni</th>
-                    <th>O'qituvchilar soni</th>
+                    <th>O'qituvchi</th>
                     <th>To'garak kunlari</th>
                     <th>To'garak vaqtlari</th>
                     <th>Sinflar</th>
@@ -145,20 +145,24 @@
                         <td>{{ $education->id }}</td>
                         <td>{{ $education->name }}</td>
                         <td>{{ $education->participants }}</td>
-                        <td>{{ $education->teacher_id }}</td>
+                        <td>{{ $education->teacher }}</td>
                         <td>{{ $education->work_days }}</td>
                         <td>{{ $education->work_time }}</td>
                         <td>
                             @php
-                                $classes = json_decode($education->classes, true); // JSON-ni PHP massiviga aylantirish
-                                $minClass = min($classes['class']); // Minimal qiymatni topish
-                                $maxClass = max($classes['class']); // Maksimal qiymatni topish
+                                $classes = json_decode($education->classes, true);
+                                $minClass = min($classes['class']);
+                                $maxClass = max($classes['class']);
                             @endphp
                             {{ $minClass }} - {{ $maxClass }}
                         </td>
                         <td>
-                            <button class="btn btn-primary btn-sm mb-5 mt-1">Edit</button>
-                            <button class="btn btn-danger btn-sm mb-5 mt-1">O'chirish</button>
+                            <a href="{{ route("circle.edit", ["id"=>$education->id]) }}" class="btn btn-primary btn-sm mb-5 mt-1">Edit</a>
+                            <form action="{{ route("circle.destroy", ["id"=>$education->id]) }}" method="post">
+                                @csrf
+                                @method("DELETE")
+                                <button class="btn btn-danger btn-sm mb-5 mt-1">O'chirish</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
@@ -168,7 +172,7 @@
 
         <div id="positions-table" class="table-section" style="display: none;">
             <h3>Lavozimlar</h3>
-            <button class="btn btn-success btn-sm mb-5 mt-1">Lavozim qo'shish</button>
+            <a href="{{ route("position.create") }}" class="btn btn-success btn-sm mb-5 mt-1">Lavozim qo'shish</a>
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -182,8 +186,12 @@
                     <tr>
                         <td>{{ $lav->id }}</td>
                         <td>{{ $lav->name  }}</td>
-                        <td><button class="btn btn-primary btn-sm mb-5 mt-1">Edit</button>
-                            <button class="btn btn-danger btn-sm mb-5 mt-1">O'chirish</button></td>
+                        <td><a href="{{ route("position.edit", ["id"=>$lav->id]) }}" class="btn btn-primary btn-sm mb-5 mt-1">Edit</a>
+                            <form action="{{ route("position.destroy", ["id"=>$lav->id]) }}" method="POST">
+                                @csrf
+                                @method("DELETE")
+                                <button class="btn btn-danger btn-sm mb-5 mt-1">O'chirish</button></td>
+                            </form>
                     </tr>
                 @endforeach
 

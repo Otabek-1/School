@@ -29,4 +29,16 @@ Route::prefix('admin')->group(function () {
     Route::put('/teacher/update/{id}', [\App\Http\Controllers\Admin\TeachersController::class, 'update'])->name('teachers.update');
     Route::delete('/teacher/{id}', [\App\Http\Controllers\Admin\TeachersController::class, 'destroy'])->name('teachers.destroy');
 
+    Route::get('/circle/create', [\App\Http\Controllers\Admin\EduController::class, 'create'])->name('circle.create');
+    Route::post('/circle/store', [\App\Http\Controllers\Admin\EduController::class, 'store'])->name('circle.store');
+    Route::get('/circle/edit/{id}', [\App\Http\Controllers\Admin\EduController::class, 'edit'])->name('circle.edit');
+    Route::put('/circle/update/{id}', [\App\Http\Controllers\Admin\EduController::class, 'update'])->name('circle.update');
+    Route::delete('/circle/{id}', [\App\Http\Controllers\Admin\EduController::class, 'destroy'])->name('circle.destroy');
+
+
+    Route::get('/position/create', [\App\Http\Controllers\Admin\PositionController::class, 'create'])->name('position.create');
+    Route::post('/position/store', [\App\Http\Controllers\Admin\PositionController::class, 'store'])->name('position.store');
+    Route::get('/position/edit/{id}', [\App\Http\Controllers\Admin\PositionController::class, 'edit'])->name('position.edit');
+    Route::put('/position/update/{id}', [\App\Http\Controllers\Admin\PositionController::class, 'update'])->name('position.update');
+    Route::delete('/position/delete/{id}', [\App\Http\Controllers\Admin\PositionController::class, 'destroy'])->name('position.destroy');
 });

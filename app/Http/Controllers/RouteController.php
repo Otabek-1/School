@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\Message;
 use App\Models\gallery;
 use App\Models\News;
+use App\Models\qoshimchaDars;
 use App\Models\Teachers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -42,7 +43,8 @@ class RouteController extends Controller
     }
     public function education()
     {
-        return view('education');
+        $qoshimchaDarslar = qoshimchaDars::all();
+        return view('education', compact('qoshimchaDarslar'));
     }
     public function schoolNews()
     {

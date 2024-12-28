@@ -199,15 +199,18 @@
                     <!-- Qo'shimcha Darslar -->
                     <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
                         <div class="servicesList">
-                            <a href="">
-                                <div>
-                                    <div class="icon">
-                                        <img alt="icon" src="/image/book svg.jfif">
+                            @foreach($qoshimchaDarslar as $qoshimchaDars)
+                                <a href="">
+                                    <div>
+                                        <div class="icon">
+                                            <img alt="icon" src="/image/book svg.jfif">
+                                        </div>
+                                        <span>{{ $qoshimchaDars->name }}</span>
                                     </div>
-                                    <span>Amaliy san'at</span>
-                                </div>
-                                <span>Amaliy san'at</span>
-                            </a>
+                                    <span>{{ $qoshimchaDars->name }}</span>
+                                </a>
+                            @endforeach
+
 
 
                         </div>
