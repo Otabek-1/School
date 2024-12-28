@@ -41,4 +41,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/position/edit/{id}', [\App\Http\Controllers\Admin\PositionController::class, 'edit'])->name('position.edit');
     Route::put('/position/update/{id}', [\App\Http\Controllers\Admin\PositionController::class, 'update'])->name('position.update');
     Route::delete('/position/delete/{id}', [\App\Http\Controllers\Admin\PositionController::class, 'destroy'])->name('position.destroy');
+
+    Route::get('/info/edit/{id}', [schoolInfoController::class, 'edit'])->name('info.edit');
+
 });

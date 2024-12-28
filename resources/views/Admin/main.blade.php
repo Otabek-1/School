@@ -199,22 +199,7 @@
             </table>
         </div>
 
-        <div id="school-info-table" class="table-section" style="display: none;">
-            <h3>Maktab Ma'lumotlari</h3>
-            <button class="btn btn-success btn-sm mb-5 mt-1">Ma'lumot qo'shish</button>
-            <ul class="list-group my-3">
-                @foreach($infos as $info)
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span>
-                <strong>{{ $info->info_name }}</strong>: {{ $info->info_count }}
-            </span>
-                        <button class="btn btn-primary btn-sm mb-5 mt-1">Edit</button>
-                        <button class="btn btn-danger btn-sm mb-5 mt-1">O'chirish</button>
-                    </li>
-                @endforeach
-            </ul>
 
-        </div>
     </div>
 </div>
 
