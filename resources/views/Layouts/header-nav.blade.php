@@ -120,18 +120,12 @@
                                     <li>
                                         <a href="{{route("education")}}">1-smena</a>
                                     </li>
-                                    <hr>
-                                    <li>
-                                        <a href="{{route("education")}}">2-smena</a>
-                                    </li>
+                                   
                                     <hr>
                                     <li>
                                         <a href="{{route("education")}}">Qo'shimcha darslar</a>
                                     </li>
-                                    <hr>
-                                    <li>
-                                        <a href="{{route("education")}}">Sport to'garaklari</a>
-                                    </li>
+                                 
                                 </ul>
                             </li>
                             <li>

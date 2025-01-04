@@ -107,13 +107,16 @@
                     <!-- Content for E'lonlar tab -->
                     <div class="tab-pane fade" id="tab2">
                         <div class="imageCardBoxes">
-                            <a href="">
+                            @foreach ($announcments as $announcment)
+                            <a href="{{ $announcment->body }}">
                                 <div class="imageBox">
-                                    <img alt="image" src="/image/329-maktab.jpg">
+                                    <img alt="image" src="{{ asset($announcment->image) }}">
                                 </div>
-                                <h1>Rossiya universitetlarida taʼlim olmoqchimisiz? Unda koʻrgazmaga marhamat!</h1>
-                                <span>04 Oktabr 2021</span>
+                                <h1>{{ $announcment->title }}</h1>
+                                <span>{{ $announcment->created_at->format('d M Y') }}</span>
                             </a>
+                            @endforeach
+                           
                         </div>
                     </div>
                 </div>

@@ -77,7 +77,7 @@
                                     <img src="{{ asset($teacher->image) }}" width="90%" alt="Zam Director">
                                     <div class="deputy_director-details">
                                         <h1>{{ $teacher->fullname }}</h1>
-                                        <span>{{ $teacher->lavozim }}</span>
+                                        <span>{{ $teacher->lavozim->name }}</span>
                                     </div>
                                 </a>
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Message;
+use App\Models\announcments;
 use App\Models\gallery;
 use App\Models\News;
 use App\Models\qoshimchaDars;
@@ -48,8 +49,9 @@ class RouteController extends Controller
     }
     public function schoolNews()
     {
+        $announcments = announcments::all();
         $news = News::all();
-        return view('schoolNews', compact('news'));
+        return view('schoolNews', compact('news','announcments'));
     }
     public function Gallery()
     {
@@ -94,6 +96,11 @@ class RouteController extends Controller
         return redirect()->route("contact")->with('success', 'Email sent');
     }
 
+    public function eduDetail($id)
+    {
+        $dars = qoshimchaDars::findOrFail($id);
+        return view("educationDetail", compact("dars"));
+    }
 
 
 }
