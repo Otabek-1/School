@@ -151,7 +151,7 @@
                     @if($teacher->lavozim_id == 1)
                         <div class="container">
                             <a href="{{ route("leaderShipDetail", $teacher->id) }}" class="mainLeader">
-                                <img alt="Director" src="{{ asset($teacher->image) }}">
+                                <img alt="Director" src="{{ asset('storage/' . $teacher->image) }}">
                                 <div class="details">
                                     <h1>{{ $teacher->fullname }}</h1>
                                     <span>{{ $teacher->lavozim->name }}</span>
@@ -168,10 +168,10 @@
             <div class="container deputy_director">
                 <div class="row">
                     @foreach($teachers as $teacher)
-                        @if($teacher->lavozim && $teacher->lavozim->id != 1)  <!-- Lavozim mavjud bo'lsa va lavozim id = 1 bo'lmasa -->
+                        @if($teacher->lavozim )  <!-- Lavozim mavjud bo'lsa va lavozim id = 1 bo'lmasa -->
                         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                             <a href="{{ route("leaderShipDetail", $teacher->id) }}" class="deputy_director-main">
-                                <img src="{{ asset($teacher->image) }}" width="60%" alt="Zam Director">
+                                <img src="{{ asset('storage/' . $teacher->image) }}" width="60%" alt="Zam Director">
                                 <div class="deputy_director-details">
                                     <h1>{{ $teacher->fullname }}</h1>
                                     <span>{{ $teacher->lavozim->name }}</span>  <!-- Lavozimning nomini chiqarish -->

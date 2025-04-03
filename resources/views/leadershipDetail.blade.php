@@ -135,7 +135,7 @@
 
                 <div class="leaderInfo">
                     <div class="photo">
-                        <img alt="image" src="{{ asset($teacher->image) }}">
+                        <img alt="image" src="/image/Director.jpg">
                     </div>
 
                     <div class="description">

@@ -15,7 +15,7 @@ class schoolInfoController extends Controller
     {
         $schoolInfos = SchoolInfo::all(); // Hammasini oladi
         $news = News::all();
-        return view('welcome', compact('schoolInfos','news')); // Ma'lumotlarni view'ga uzatadi
+        return view('welcome', compact('schoolInfos', 'news')); // Ma'lumotlarni view'ga uzatadi
     }
 
     /**
@@ -45,18 +45,32 @@ class schoolInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
     {
-        //
+        $schoolInfo = SchoolInfo::all();
+        return view("admin.editInfo", compact("schoolInfo"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(Request $request)
+{
+    
+    $data = $request->except(['_token', '_method']);
+   
+    foreach ($data as $id => $info_count) {
+        $info = SchoolInfo::find($id); 
+        if ($info) { 
+            $info->info_count = $info_count; 
+            $info->save();
+        }
     }
+
+    return redirect()->route("dashboard")->with('success', 'Ma\'lumotlar muvaffaqiyatli yangilandi.');
+}
+
+
 
     /**
      * Remove the specified resource from storage.

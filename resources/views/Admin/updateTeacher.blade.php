@@ -36,9 +36,9 @@
         <div class="mb-3">
             <label for="lavozim_id" class="form-label">Lavozim</label>
             <select name="lavozim_id" id="lavozim_id" class="form-select" required>
-                <option selected disabled>{{ $teacher->lavozim }}</option>
+                <option selected disabled>{{ $teacher->lavozim->name  }}</option>
                 @foreach($positions as $position)
-                    <option value="{{ $position->id }}">{{ $position->name }}</option>
+                    <option value="{{ $position->id }}" >{{ $position->name }}</option>
                 @endforeach
             </select>
         </div>

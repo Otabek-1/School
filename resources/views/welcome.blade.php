@@ -154,7 +154,7 @@
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".6s">
                             <a href="{{ route('NewsShow', $new->slug) }}">
                                 <div class="imageBox">
-                                    <img alt="image" src="{{ asset('storage/' . $new->image) }}" width="170px">
+                                    <img alt="image" src="{{ asset( $new->image) }}" width="170px">
                                 </div>
                                 <h1>{{ $new->title }}</h1>
                                 <span>{{ $new->created_at->format('d M Y') }}</span>
@@ -224,19 +224,19 @@
                             </tr>
                             <tr>
                                 <th>Telefon:</th>
-                                <td>+99891-191-84-48</td>
+                                <td>+99899-477-55-30</td>
                             </tr>
                             <tr>
                                 <th>Faks:</th>
-                                <td>+99891-191-84-48</td>
+                                <td>+99899-477-55-30</td>
                             </tr>
                             <tr>
                                 <th>Instagram:</th>
-                                <td>@329_maktab</td>
+                                <td>@h_xudoyberdiyeva</td>
                             </tr>
                             <tr>
                                 <th>Telegram:</th>
-                                <td>@329maktab</td>
+                                <td>@hxudoyberdiyeva</td>
                             </tr>
                             </tbody>
                         </table>

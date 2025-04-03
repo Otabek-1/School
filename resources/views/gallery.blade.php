@@ -70,7 +70,7 @@
                 <div class="row">
                     @foreach($gallery as $pic)
                         <div class="col-12 mb-2">
-                            <img src="{{ asset('storage/' . $pic->path) }}" alt="Img" width="100%" height="90%">
+                            <img src="{{ asset( $pic->path) }}" alt="Img" width="100%" height="90%">
                         </div>
                     @endforeach
 

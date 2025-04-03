@@ -200,7 +200,7 @@
                     <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
                         <div class="servicesList">
                             @foreach($qoshimchaDarslar as $qoshimchaDars)
-                                <a href="">
+                                <a href="{{ route("eduDetail", $qoshimchaDars->id) }}">
                                     <div>
                                         <div class="icon">
                                             <img alt="icon" src="/image/book svg.jfif">

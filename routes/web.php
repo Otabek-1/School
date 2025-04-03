@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\announcController;
+use App\Http\Controllers\galleryController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\schoolInfoController;
 Route::get('/', [schoolInfoController::class, 'index']);
@@ -20,6 +24,8 @@ Route::get('/connect', [\App\Http\Controllers\RouteController::class, 'Contact']
 Route::get('/news/{slug}', [\App\Http\Controllers\RouteController::class, 'NewsShow'])->name('NewsShow');
 Route::get("/leadershipDetail/{id}", [\App\Http\Controllers\RouteController::class, 'leaderShipDetail'])->name('leaderShipDetail');
 Route::post('/sendEmail', [\App\Http\Controllers\RouteController::class, 'sendEmail'])->name('sendEmail');
+
+Route::get('/education-detail/{id}', [RouteController::class, 'eduDetail'])->name("eduDetail");
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'Dashboard'])->name('dashboard');
@@ -44,4 +50,23 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/info/edit/{id}', [schoolInfoController::class, 'edit'])->name('info.edit');
 
+    Route::get('/news/add', [NewsController::class, 'create'])->name('news.create');
+    Route::post('/news/create', [NewsController::class, 'store'])->name('news.store');
+    Route::get('/news/edit/{id}', [NewsController::class, 'edit'])->name("news.edit");
+    Route::put('/news/update/{id}', [NewsController::class, 'update'])->name("news.update");
+    Route::delete('/news/delete/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
+
+    Route::get('/schoolinfo/edit', [schoolInfoController::class, 'edit'])->name("schoolinfo.edit");
+    Route::put('/schoolinfo.update', [schoolInfoController::class, "update"])->name("schoolinfo.update");
+
+
+    Route::get('/announcement/add', [announcController::class, 'create'])->name('ann.create');
+    Route::post('/announcment/store', [announcController::class, 'store'])->name('ann.store');
+    Route::get('/announcment/edit/{id}', [announcController::class, 'edit'])->name('ann.edit');
+    Route::post('/announcment/update/{id}', [announcController::class, 'update'])->name('ann.update');
+    Route::delete('/announcments/delete/{id}', [announcController::class, 'destroy'])->name('ann.destroy');
+
+    Route::get('/galery/add', [galleryController::class, 'create'])->name('gallery.create');
+    Route::post('/galery/store', [galleryController::class, 'store'])->name('gallery.store');
+    Route::delete('/galery/delete/{id}', [galleryController::class, 'destroy'])->name('gallery.destroy');
 });
