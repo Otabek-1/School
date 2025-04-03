@@ -152,7 +152,7 @@
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".6s">
                             <a href="{{ route('NewsShow', $new->slug) }}">
                                 <div class="imageBox">
-                                    <img alt="image" src="{{ asset('storage/' . $new->image) }}" width="170px">
+                                    <img alt="image" src="{{ asset( $new->image) }}" width="170px">
                                 </div>
                                 <h1>{{ $new->title }}</h1>
                                 <span>{{ $new->created_at->format('d M Y') }}</span>

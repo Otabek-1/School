@@ -81,7 +81,7 @@
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="titleBox_img">
-                                <img alt="image" src="{{ asset('storage/' . $news->image) }}" width="70%">
+                                <img alt="image" src="{{ asset( $news->image) }}" width="70%">
                             </div>
                         </div>
                     </div>

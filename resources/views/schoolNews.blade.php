@@ -93,7 +93,7 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <a href="{{ route('NewsShow', $new->slug) }}">
                                             <div class="imageBox">
-                                                <img alt="image" src="{{ asset('storage/' . $new->image) }}">
+                                                <img alt="image" src="{{ asset($new->image) }}">
                                             </div>
                                             <h1>{{ $new->title }}</h1>
                                             <span>{{ $new->created_at->format('d M Y') }}</span>
