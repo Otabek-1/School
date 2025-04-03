@@ -16,8 +16,9 @@ class Teachers extends Model
 
     public function lavozim(): HasOne
     {
-        return $this->hasOne(Lavozim::class, 'id');
+        return $this->hasOne(Lavozim::class, 'id', 'lavozim_id');
     }
+    
 
     public function circle(): HasMany
     {

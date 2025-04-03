@@ -21,7 +21,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        $new = News::all();
+        return view('')
     }
 
     /**

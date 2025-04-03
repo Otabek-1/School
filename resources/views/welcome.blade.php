@@ -30,9 +30,9 @@
                     <div class="row">
                         <div class="logoTextBox">
                             <div class="col-12"></div>
-                            <h1 class="logoTextBox__title text-center">
-                                <b>Halima Xudoyberdiyeva nomiadgi ijod <br> maktabi</b> <br>
-                                Guliston shahar
+                            <h1 class="logoTextBox__title text-center"  style="margin-top:60px">
+                                <b>Halima Xudoyberdiyeva nomiadgi ijod maktabi</b>
+                                <!-- Guliston shahar -->
                             </h1>
                             <div class="quote text-center">
                                 <p class="">"Yangi O'zbekiston - maktab ostonasidan boshlanadi"</p>
@@ -111,6 +111,8 @@
             </div>
             <!-- School Info End -->
 
+            <!-- GENZ section start -->
+             
 
             <hr class="sections__line">
             <!-- Online School Come Start -->
